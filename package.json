@@ -1,0 +1,25 @@
+{
+  "name": "agent-desktop-rebuild",
+  "version": "1.2.0-rebuild",
+  "description": "Recreation of vercel-labs/agent-desktop: accessibility-tree desktop/browser automation for agents (CLI + MCP)",
+  "type": "module",
+  "bin": {
+    "agent-desktop": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/ws": "^8.5.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  },
+  "license": "Apache-2.0"
+}
