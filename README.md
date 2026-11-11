@@ -1,5 +1,29 @@
 # agent-desktop-rebuild
 
+```text
+                         ╭──────────────────────────────────────────╮
+                         │  agent-desktop-rebuild                   │
+                         │  observe · ref · act · verify            │
+                         ╰──────────────────────────────────────────╯
+                                           │
+                                           ▼
+      ┌─ Desktop / Browser ─────────────────────────────────────────────────┐
+      │  ╭─ window ─────────────────────────╮   accessibility tree (no img) │
+      │  │  ▣  ▢  ▢   app / page           │   Root                        │
+      │  ├─────────────────────────────────┤   ├─ banner                    │
+      │  │  [ Name        ]  @sA1:e3       │   │  └─ textbox  @sA1:e3       │
+      │  │  [ Submit  ▶  ]   @sA1:e4       │   ├─ main                      │
+      │  │   ☑ remember me   @sA1:e5       │   │  ├─ button   @sA1:e4  ◀──┐ │
+      │  │                                 │   │  └─ checkbox @sA1:e5      │ │
+      │  ╰─────────────────────────────────╯   └─ …                        │ │
+      │                                                                       │ │
+      │     snapshot ──▶  { @sA1:e3, @sA1:e4, @sA1:e5 }  ──▶  click e4  ─────┘ │
+      │         ▲                                                │            │
+      │         └──────────────────  verify (snapshot)  ◀────────┘            │
+      └───────────────────────────────────────────────────────────────────────┘
+                AX (macOS) · UIA (Windows) · AT-SPI (Linux) · CDP/AX (Browser)
+```
+
 Recriação do [vercel-labs/agent-desktop](https://github.com/vercel-labs/agent-desktop): uma ferramenta de *computer use* para agentes de IA que **enxerga e opera** interfaces pela **árvore de acessibilidade** (como um leitor de tela), em vez de depender de screenshots e matching de pixels.
 
 Este projeto entrega duas frentes:
